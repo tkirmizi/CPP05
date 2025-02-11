@@ -6,7 +6,7 @@
 /*   By: taha <taha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 17:38:28 by taha              #+#    #+#             */
-/*   Updated: 2025/02/11 17:51:34 by taha             ###   ########.fr       */
+/*   Updated: 2025/02/11 19:32:16 by taha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,14 @@
 #define SHRUBBERYCREATIONFORM_HPP
 
 #include "AForm.hpp"
+#include <fstream>
+
 
 class ShrubberyCreationForm : public AForm
 {
 	private:
 		std::string _target;
 	public:
-		ShrubberyCreationForm();
 		ShrubberyCreationForm(std::string target);
 		~ShrubberyCreationForm();
 		ShrubberyCreationForm(const ShrubberyCreationForm &other);

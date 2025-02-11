@@ -6,16 +6,11 @@
 /*   By: taha <taha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 17:38:23 by taha              #+#    #+#             */
-/*   Updated: 2025/02/11 17:54:52 by taha             ###   ########.fr       */
+/*   Updated: 2025/02/11 19:32:10 by taha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
-
-ShrubberyCreationForm::ShrubberyCreationForm()
-: AForm("ShrubberyCreationForm", 145, 137), _target("Default"){};
-
-
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target)
 : AForm("ShrubberyCreationForm", 145, 137), _target(target){};
@@ -29,4 +24,20 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationF
 	return *this;
 }
 
-// void ShrubberyCreationForm::execute(Bureaucrat const & executor) const;
+void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
+{
+	AForm::execute(executor);
+
+	std::string filename = _target + "_shrubbery";
+	std::ofstream outfile(filename.c_str());
+
+	if (!outfile.is_open())
+	    throw std::runtime_error("Cannot create file");
+	
+	outfile << "    *    \n";
+	outfile << "   ***   \n";
+	outfile << "  *****  \n";
+	outfile << " ******* \n";
+	outfile << "   |||   \n";
+	outfile.close();
+}

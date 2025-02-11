@@ -6,7 +6,7 @@
 /*   By: taha <taha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 17:56:17 by taha              #+#    #+#             */
-/*   Updated: 2025/02/11 18:01:39 by taha             ###   ########.fr       */
+/*   Updated: 2025/02/11 19:11:41 by taha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,13 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm &o
 	return *this;
 }
 
-// void RobotomyRequestForm::execute(Bureaucrat const & executor) const;
-// {
-// 	if (executor.getGrade() > getGradeToExecute())
-// 		throw AForm::GradeTooLowException();
-// 	std::cout << "Drilling noises" << std::endl;
-// }
+void RobotomyRequestForm::execute(Bureaucrat const & executor) const
+{
+	AForm::execute(executor); // Call base class execute first
+	std::cout << "* DRILLING NOISES *" << std::endl;
+
+	if (rand() % 2)
+		std::cout << _target << " has been robotomized successfully!" << std::endl;
+	else
+		std::cout << "Robotomy failed on " << _target << std::endl;
+}

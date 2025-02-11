@@ -1,6 +1,5 @@
-NAME = forms
-SRCS =	main.cpp Bureaucrat.cpp AForm.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp
-
+NAME =bureaucrat
+SRCS = main.cpp Bureaucrat.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 CXX = clang++
@@ -12,6 +11,9 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(CXX) $(CXXSTD) $(CXXFLAGS) $(OBJS) -o $(NAME)
+
+%.o: %.cpp
+	$(CXX) $(CXXSTD) $(CXXFLAGS) -c $< -o $@
 
 clean:
 	$(RM) $(OBJS)

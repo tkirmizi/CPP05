@@ -6,7 +6,7 @@
 /*   By: taha <taha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 13:04:52 by taha              #+#    #+#             */
-/*   Updated: 2025/02/11 19:04:02 by taha             ###   ########.fr       */
+/*   Updated: 2025/02/11 13:05:30 by taha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,18 +61,4 @@ std::ostream& operator<<(std::ostream& os, const Bureaucrat& b)
 {
 	os << b.getName() << ", bureaucrat grade " << b.getGrade();
 	return os;
-}
-
-void Bureaucrat::executeForm(AForm const & form) const
-{
-	try
-	{
-		form.execute(*this);
-		std::cout << _name << " executed " << form.getName() << std::endl;
-	}
-	catch (const std::exception &e)
-	{
-		std::cerr << _name << " couldn't execute " << form.getName()
-				<< " as because of " << e.what() << std::endl;
-	}
 }
