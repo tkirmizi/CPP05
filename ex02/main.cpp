@@ -6,7 +6,7 @@
 /*   By: taha <taha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 17:49:11 by taha              #+#    #+#             */
-/*   Updated: 2025/02/11 19:22:00 by taha             ###   ########.fr       */
+/*   Updated: 2025/02/11 19:39:48 by taha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,13 +59,12 @@ int main()
 		RobotomyRequestForm form4("Bender");
 		Bureaucrat manager("Manager", 45);
 		form4.beSigned(manager);
-		// Test multiple robotomy attempts to see randomization
 		manager.executeForm(form4);
 		manager.executeForm(form4);
 		manager.executeForm(form4);
 	}
 	catch(const std::exception& e) {
-	    std::cout << e.what() << std::endl;
+		std::cout << e.what() << std::endl;
 	}
 
 	std::cout << "\n========== Test 5 - Shrubbery Creation Form ===========" << std::endl;
