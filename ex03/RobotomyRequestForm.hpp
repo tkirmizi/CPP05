@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Intern.hpp                                         :+:      :+:    :+:   */
+/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taha <taha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/13 20:06:06 by taha              #+#    #+#             */
-/*   Updated: 2025/02/14 14:55:04 by taha             ###   ########.fr       */
+/*   Created: 2025/02/11 17:55:23 by taha              #+#    #+#             */
+/*   Updated: 2025/02/11 17:56:07 by taha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef INTERN_HPP
-# define INTERN_HPP
+#ifndef ROBOTOMYREQUESTFORM_HPP
+#define ROBOTOMYREQUESTFORM_HPP
 
 #include "AForm.hpp"
-#include "PresidentialPardonForm.hpp"
-#include "RobotomyRequestForm.hpp"
-#include "ShrubberyCreationForm.hpp"
 
-class Intern
+class RobotomyRequestForm : public AForm
 {
+	private:
+		std::string _target;
 	public:
-		Intern();
-		~Intern();
-		Intern(const Intern &other);
-		Intern& operator=(const Intern &other);
+		RobotomyRequestForm(std::string target);
+		~RobotomyRequestForm();
+		RobotomyRequestForm(const RobotomyRequestForm &other);
+		RobotomyRequestForm& operator=(const RobotomyRequestForm &other);
 
-		AForm *makeForm(std::string formName, std::string target);
+		void execute(Bureaucrat const & executor) const;
 };
 
 #endif

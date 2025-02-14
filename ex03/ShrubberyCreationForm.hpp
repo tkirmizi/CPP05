@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Intern.hpp                                         :+:      :+:    :+:   */
+/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taha <taha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/13 20:06:06 by taha              #+#    #+#             */
-/*   Updated: 2025/02/14 14:55:04 by taha             ###   ########.fr       */
+/*   Created: 2025/02/11 17:38:28 by taha              #+#    #+#             */
+/*   Updated: 2025/02/11 19:32:16 by taha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef INTERN_HPP
-# define INTERN_HPP
+#ifndef SHRUBBERYCREATIONFORM_HPP
+#define SHRUBBERYCREATIONFORM_HPP
 
 #include "AForm.hpp"
-#include "PresidentialPardonForm.hpp"
-#include "RobotomyRequestForm.hpp"
-#include "ShrubberyCreationForm.hpp"
+#include <fstream>
 
-class Intern
+
+class ShrubberyCreationForm : public AForm
 {
+	private:
+		std::string _target;
 	public:
-		Intern();
-		~Intern();
-		Intern(const Intern &other);
-		Intern& operator=(const Intern &other);
+		ShrubberyCreationForm(std::string target);
+		~ShrubberyCreationForm();
+		ShrubberyCreationForm(const ShrubberyCreationForm &other);
+		ShrubberyCreationForm& operator=(const ShrubberyCreationForm &other);
 
-		AForm *makeForm(std::string formName, std::string target);
+		void execute(Bureaucrat const & executor) const;
 };
 
 #endif
