@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Intern.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: taha <taha@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: tkirmizi <tkirmizi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 20:06:28 by taha              #+#    #+#             */
-/*   Updated: 2025/02/14 14:55:51 by taha             ###   ########.fr       */
+/*   Updated: 2025/02/14 16:01:08 by tkirmizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,22 +20,23 @@ Intern::Intern(const Intern &other) {*this = other;}
 
 Intern& Intern::operator=(const Intern &other){(void)other; return *this;}
 
-AForm *Intern::makeForm(std::string formName, std::string target)
+Form *Intern::makeForm(std::string formName, std::string target)
 {
-	std::string formTypes[] = {
+	std::string formTypes[] =
+	{
 		"presidential pardon",
 		"robotomy request",
 		"shrubbery creation"
-};
+	};
 
-	AForm *forms[] = 
+	Form *forms[] = 
 	{
 		new PresidentialPardonForm(target),
 		new RobotomyRequestForm(target),
 		new ShrubberyCreationForm(target)
 	};
 
-	AForm *selectedForm = NULL;
+	Form *selectedForm = NULL;
 	for (int i = 0; i < 3; i++)
 	{
 		if (formName == formTypes[i])

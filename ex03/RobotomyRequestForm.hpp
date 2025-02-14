@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: taha <taha@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: tkirmizi <tkirmizi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 17:55:23 by taha              #+#    #+#             */
-/*   Updated: 2025/02/11 17:56:07 by taha             ###   ########.fr       */
+/*   Updated: 2025/02/14 16:01:08 by tkirmizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ROBOTOMYREQUESTFORM_HPP
 #define ROBOTOMYREQUESTFORM_HPP
 
-#include "AForm.hpp"
+#include "Form.hpp"
 
-class RobotomyRequestForm : public AForm
+class RobotomyRequestForm : public Form
 {
 	private:
 		std::string _target;

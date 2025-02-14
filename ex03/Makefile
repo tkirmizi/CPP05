@@ -1,10 +1,10 @@
-NAME = intern
-SRCS =	main.cpp Bureaucrat.cpp AForm.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp Intern.cpp
+NAME = forms
+SRCS =	main.cpp Bureaucrat.cpp Form.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp Intern.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
 CXX = clang++
-CXXSTD = -std=c++98
+CXXSTD = -std=c++17
 CXXFLAGS = -Wall -Wextra -Werror
 RM = rm -rf
 
@@ -12,6 +12,9 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(CXX) $(CXXSTD) $(CXXFLAGS) $(OBJS) -o $(NAME)
+
+%.o: %.cpp
+	$(CXX) $(CXXSTD) $(CXXFLAGS) -c $< -o $@
 
 clean:
 	$(RM) $(OBJS)

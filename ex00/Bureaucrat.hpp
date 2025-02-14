@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: taha <taha@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: tkirmizi <tkirmizi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 13:04:12 by taha              #+#    #+#             */
-/*   Updated: 2025/02/11 13:04:51 by taha             ###   ########.fr       */
+/*   Updated: 2025/02/14 16:13:36 by tkirmizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ class Bureaucrat
 		void		decrementGrade(void);
 		friend std::ostream& operator<<(std::ostream& os, const Bureaucrat& b);
 		class	GradeTooHighException : public std::exception{
-			public: const char *what() const throw();};
+			public: const char *what() const noexcept override;};
 		class	GradeTooLowException : public std::exception{
-			public: const char *what() const throw();};
+			public: const char *what() const noexcept override;};
 };
 
 

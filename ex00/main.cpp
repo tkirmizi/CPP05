@@ -3,13 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: taha <taha@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: tkirmizi <tkirmizi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 10:26:47 by taha              #+#    #+#             */
-/*   Updated: 2025/02/11 13:05:43 by taha             ###   ########.fr       */
+/*   Updated: 2025/02/14 16:16:41 by tkirmizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <exception>
+#include <iostream>
+#include <string>
 
 #include "Bureaucrat.hpp"
 
@@ -21,7 +24,8 @@ int main()
 	{
 		Bureaucrat bur1("Bur1", 151);
 	}
-	catch(const std::exception &e){
+	catch(const std::exception &e)
+	{
 		std::cout << e.what() << std::endl;
 	}
 

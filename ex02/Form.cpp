@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkirmizi <tkirmizi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/11 13:19:32 by taha              #+#    #+#             */
-/*   Updated: 2025/02/14 17:06:19 by tkirmizi         ###   ########.fr       */
+/*   Created: 2025/02/14 15:56:33 by tkirmizi          #+#    #+#             */
+/*   Updated: 2025/02/14 17:07:36 by tkirmizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,9 @@ bool		Form::getSigned(void) const{return _signed;}
 int			Form::getGradeToSign(void) const{return _gradeToSign;}
 int			Form::getGradeToExecute(void) const{return _gradeToExecute;}
 
-const char* Form::GradeTooHighException::what() const noexcept {return "Grade too high";}
-const char* Form::GradeTooLowException::what() const noexcept {return "Grade too Low";}
+const char* Form::GradeTooHighException::what() const noexcept{return "Grade too high";}
+const char* Form::GradeTooLowException::what() const noexcept{return "Grade too Low";}
+const char* Form::FormNotSignedException::what() const noexcept{return "Form is not signed";}
 
 std::ostream &operator<<(std::ostream &os, const Form &f)
 {
@@ -60,3 +61,10 @@ void Form::beSigned(const Bureaucrat &b)
 }
 
 
+void Form::execute(Bureaucrat const & executor) const
+{
+	if (executor.getGrade() > _gradeToExecute)
+		throw Form::GradeTooLowException();
+	if (!_signed)
+		throw Form::FormNotSignedException();
+}

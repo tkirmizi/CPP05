@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AForm.hpp                                          :+:      :+:    :+:   */
+/*   Form.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taha <taha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AFORM_HPP
-#define AFORM_HPP
+#ifndef Form_HPP
+#define Form_HPP
 
 #include <iostream>
 #include <string>
@@ -20,7 +20,7 @@
 
 class Bureaucrat;
 
-class AForm
+class Form
 {
 	private:
 		const std::string _name;
@@ -28,11 +28,11 @@ class AForm
 		const int _gradeToSign;
 		const int _gradeToExecute;
 	public:
-		AForm();
-		AForm(std::string name, int gradeToSign, int gradeToExecute);
-		virtual ~AForm();
-		AForm(const AForm &other);
-		AForm& operator=(const AForm &other);
+		Form();
+		Form(std::string name, int gradeToSign, int gradeToExecute);
+		virtual ~Form();
+		Form(const Form &other);
+		Form& operator=(const Form &other);
 
 		std::string getName(void) const;
 		bool		getSigned(void) const;
@@ -42,12 +42,12 @@ class AForm
 		virtual void execute(Bureaucrat const & executor) const = 0;
 
 		class GradeTooHighException : public std::exception{
-			public: const char *what() const throw();};
+			public: const char *what() const noexcept override;};
 		class GradeTooLowException : public std::exception{
-			public: const char *what() const throw();};
+			public: const char *what() const noexcept override;};
 		class FormNotSignedException : public std::exception{
-				public: const char *what() const throw();};
-		friend std::ostream &operator<<(std::ostream &os, const AForm &f);
+				public: const char *what() const noexcept override;};
+		friend std::ostream &operator<<(std::ostream &os, const Form &f);
 };
 
 #endif

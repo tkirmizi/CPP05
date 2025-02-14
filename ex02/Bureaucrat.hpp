@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: taha <taha@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: tkirmizi <tkirmizi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 13:04:12 by taha              #+#    #+#             */
-/*   Updated: 2025/02/11 19:06:57 by taha             ###   ########.fr       */
+/*   Updated: 2025/02/14 17:06:46 by tkirmizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 
 #include <iostream>
 #include <exception>
-#include "AForm.hpp"
+#include "Form.hpp"
 
-class AForm;
+class Form;
 
 class Bureaucrat
 {
@@ -36,13 +36,13 @@ class Bureaucrat
 		int						getGrade(void) const ;
 		void					incrementGrade(void);
 		void					decrementGrade(void);
-		void					executeForm(AForm const & form) const;
+		void					executeForm(Form const & form) const;
 
 		class	GradeTooHighException : public std::exception{
-			public: const char *what() const throw();};
+			public: const char *what() const noexcept override;};
 
 		class	GradeTooLowException : public std::exception{
-			public: const char *what() const throw();};
+			public: const char *what() const noexcept override;};
 };
 
 

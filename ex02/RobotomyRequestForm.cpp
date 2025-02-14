@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: taha <taha@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: tkirmizi <tkirmizi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 17:56:17 by taha              #+#    #+#             */
-/*   Updated: 2025/02/11 19:11:41 by taha             ###   ########.fr       */
+/*   Updated: 2025/02/14 17:07:54 by tkirmizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target)
-	: AForm("RobotomyRequestForm", 72, 45), _target(target){}
+	: Form("RobotomyRequestForm", 72, 45), _target(target){}
 RobotomyRequestForm::~RobotomyRequestForm(){}
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &other){*this = other;}
 RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm &other){
@@ -24,7 +24,7 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm &o
 
 void RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
-	AForm::execute(executor); // Call base class execute first
+	Form::execute(executor);
 	std::cout << "* DRILLING NOISES *" << std::endl;
 
 	if (rand() % 2)

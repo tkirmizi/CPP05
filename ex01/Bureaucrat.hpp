@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: taha <taha@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: tkirmizi <tkirmizi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 13:04:12 by taha              #+#    #+#             */
-/*   Updated: 2025/02/11 16:08:29 by taha             ###   ########.fr       */
+/*   Updated: 2025/02/14 17:06:00 by tkirmizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,18 @@ class Bureaucrat
 		friend std::ostream& operator<<(std::ostream& os, const Bureaucrat& b);
 		void signForm(Form& form);
 
-		class	GradeTooHighException : public std::exception{
-			public: const char *what() const throw();};
+		class	GradeTooHighException : public std::exception
+		{
+			public:
+				const char *what() const noexcept override;
+		};
 
-		class	GradeTooLowException : public std::exception{
-			public: const char *what() const throw();};
+
+		class	GradeTooLowException : public std::exception
+		{
+			public:
+				const char *what() const noexcept override;
+		};
 };
 
 
